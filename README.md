@@ -163,4 +163,3 @@ Streamlit web interface featuring:
 - **pillow**: 10.0.0
 
 All dependencies are listed in `requirements.txt`
-
