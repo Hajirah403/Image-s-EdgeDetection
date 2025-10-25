@@ -12,23 +12,6 @@ A professional web application for visual experimentation with edge detection al
 - 🎨 **Modern, animated UI** with gradient designs
 - ⚡ **Real-time processing** with instant visual feedback
 
----
-
-## 📸 Screenshots
-
-### Welcome Screen
-![Welcome Screen](screenshots/welcome.png.jpg)
-
-### Sobel Edge Detection
-![Sobel Detection](screenshots/sobel.png.jpg)
-
-### Laplacian Edge Detection
-![Laplacian Detection](screenshots/laplacian.png.jpg)
-
-### Canny Edge Detection
-![Canny Detection](screenshots/canny.png.jpg)
-
----
 
 ## 🚀 Installation
 
