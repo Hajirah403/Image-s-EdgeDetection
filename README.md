@@ -1,19 +1,17 @@
-# 🎨 Interactive Edge Detection Studio
+# Interactive Edge Detection Studio
 
-A professional web application for visual experimentation with edge detection algorithms: Sobel, Laplacian, and Canny.
+A web application for visual experimentation with edge detection algorithms: Sobel, Laplacian, and Canny. Built with Streamlit and OpenCV.
 
-## ✨ Features
+## Features
 
-- 📤 **Upload images** (JPG, PNG, BMP formats)
-- 🎯 **Three edge detection algorithms** with real-time parameter adjustment
-- 🖼️ **Side-by-side display** of original and processed images
-- 📊 **Current configuration display** showing active parameters
-- ⬇️ **Download results** as PNG files
-- 🎨 **Modern, animated UI** with gradient designs
-- ⚡ **Real-time processing** with instant visual feedback
+- Upload images (JPG, PNG, BMP formats)
+- Three edge detection algorithms with real-time parameter adjustment
+- Side-by-side display of original and processed images
+- Current configuration display showing active parameters
+- Download processed results as PNG files
+- Real-time processing with instant visual feedback
 
-
-## 🚀 Installation
+## Installation
 
 ### 1. Clone the repository
 ```bash
@@ -21,14 +19,13 @@ git clone https://github.com/Hajirah403/Image-s-EdgeDetection.git
 cd Image-s-EdgeDetection
 ```
 
-### 2. Create virtual environment
+### 2. Create a virtual environment
 ```bash
-# Create virtual environment
 python -m venv venv
 
-# Activate virtual environment
 # On Windows:
 venv\Scripts\activate
+
 # On macOS/Linux:
 source venv/bin/activate
 ```
@@ -38,111 +35,82 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
----
-
-## 🎮 How to Run
+## Running the Application
 
 ```bash
 streamlit run src/app.py
 ```
 
-The application will open automatically in your browser at `http://localhost:8501`
+The application opens automatically in your browser at `http://localhost:8501`.
 
----
+## Usage
 
-## 📖 How to Use
+1. Upload an image via the sidebar
+2. Select an algorithm: Sobel, Laplacian, or Canny
+3. Adjust parameters using the provided sliders and controls
+4. Compare the original and processed images side-by-side
+5. Download the processed image if needed
 
-1. **Upload an image** - Click "Browse files" in the sidebar or drag & drop
-2. **Select algorithm** - Choose from Sobel, Laplacian, or Canny
-3. **Adjust parameters** - Use sliders and controls to fine-tune detection
-4. **View results** - Compare original and edge-detected images side-by-side
-5. **Download** - Save the processed image using the download button
+## Algorithms
 
----
-
-## 🔬 Algorithms
-
-### 🔷 Sobel Edge Detection
-Detects edges using gradient operators (first derivative method)
+### Sobel Edge Detection
+Detects edges using gradient operators (first derivative method).
 
 **Parameters:**
-- **Kernel Size**: `3, 5, 7, 9` (larger = more smoothing)
-- **Direction**: `x`, `y`, or `both` (edge orientation)
+- Kernel Size: 3, 5, 7, 9 (larger = more smoothing)
+- Direction: x, y, or both (edge orientation)
 
-**Best for:** General-purpose edge detection, gradient analysis
+Best for general-purpose edge detection and gradient analysis.
 
----
-
-### 🔶 Laplacian Edge Detection
-Uses second derivative to find edges with high sensitivity
+### Laplacian Edge Detection
+Uses second derivative methods to detect edges with high sensitivity.
 
 **Parameters:**
-- **Kernel Size**: `1, 3, 5, 7` (larger = finer details)
+- Kernel Size: 1, 3, 5, 7 (larger = finer detail)
 
-**Best for:** Fine textures, detailed edges, blob detection
+Best for fine textures, detailed edges, and blob detection.
 
----
-
-### 🔸 Canny Edge Detection
-Multi-stage algorithm with Gaussian blur and double thresholding
+### Canny Edge Detection
+A multi-stage algorithm combining Gaussian blur and double thresholding.
 
 **Parameters:**
-- **Lower Threshold**: `0-255` (minimum edge strength)
-- **Upper Threshold**: `0-255` (maximum edge strength)
-- **Kernel Size**: `3, 5, 7, 9` (Gaussian blur kernel)
-- **Sigma**: `0.1-5.0` (blur intensity)
+- Lower Threshold: 0–255 (minimum edge strength)
+- Upper Threshold: 0–255 (maximum edge strength)
+- Kernel Size: 3, 5, 7, 9 (Gaussian blur kernel)
+- Sigma: 0.1–5.0 (blur intensity)
 
-**Best for:** Most accurate edge detection, precise control
+Best for precise, accurate edge detection with fine control.
 
----
-
-## 📁 Project Structure
-
-```
+## Project Structure
 Image-s-EdgeDetection/
 ├── src/
-│   ├── app.py                    # Streamlit web interface
-│   └── edge_detection.py         # Edge detection algorithms
-├── screenshots/                   # Application screenshots
-│   ├── welcome.png
-│   ├── sobel.png
-│   ├── laplacian.png
-│   └── canny.png
-├── requirements.txt              # Python dependencies
-├── .gitignore                    # Git ignore configuration
-└── README.md                     # Documentation (this file)
-```
+│ ├── app.py # Streamlit web interface
+│ └── edge_detection.py # Edge detection algorithms
+├── screenshots/
+│ ├── welcome.png
+│ ├── sobel.png
+│ ├── laplacian.png
+│ └── canny.png
+├── requirements.txt
+├── .gitignore
+└── README.md
 
----
 
-## 💻 Code Overview
+## Code Overview
 
-### `edge_detection.py`
-Contains the `EdgeDetector` class with three main methods:
+**edge_detection.py** contains the `EdgeDetector` class with three core methods:
+- `sobel(kernel_size, direction)` — Sobel edge detection
+- `laplacian(kernel_size)` — Laplacian edge detection
+- `canny(lower, upper, kernel_size, sigma)` — Canny edge detection
 
-- **`sobel(kernel_size, direction)`** - Sobel edge detection
-- **`laplacian(kernel_size)`** - Laplacian edge detection
-- **`canny(lower, upper, kernel_size, sigma)`** - Canny edge detection
+**app.py** implements the Streamlit interface, including real-time parameter controls, side-by-side image comparison, configuration display, and download functionality.
 
-Each method is well-documented with parameters and return values.
+## Requirements
 
-### `app.py`
-Streamlit web interface featuring:
+- Python 3.9 or higher
+- opencv-python 4.8.1.78
+- numpy 1.24.3
+- streamlit 1.28.1
+- pillow 10.0.0
 
-- 🎨 Animated gradient UI with modern design
-- 📊 Real-time parameter controls
-- 🖼️ Side-by-side image comparison
-- 📈 Configuration metrics display
-- ⬇️ Download functionality for processed images
-
----
-
-## 📋 Requirements
-
-- **Python**: 3.9 or higher
-- **opencv-python**: 4.8.1.78
-- **numpy**: 1.24.3
-- **streamlit**: 1.28.1
-- **pillow**: 10.0.0
-
-All dependencies are listed in `requirements.txt`
+All dependencies are listed in `requirements.txt`.
